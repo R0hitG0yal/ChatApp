@@ -8,7 +8,8 @@ socket.on("message", function (data) {
 
 socket.on("historical_messages", function (messages) {
   for (let message of messages) {
-    const html = generateMessageHTML(message.username, message.timestamp, message.message);
+    if (message.username == undefined || message.timestamp == undefined || message.message == undefined) continue;
+    const html = generateMessageHTML(message.username, message.timestamp, message.message); //needs a fix
     const element = document.createElement("li");
     element.innerHTML = html;
     document.getElementById("chat-messages").appendChild(element);

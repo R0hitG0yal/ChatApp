@@ -118,7 +118,7 @@ async function setupWorkerProcess() {
                 })
                 .filter(Boolean)
                 .reverse();
-            console.log(parsedMessages);
+            // console.log(parsedMessages);
 
             socket.emit("historical_messages", parsedMessages);
 
